@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>JS Inheritance and Prototype</title>
+  </head>
+  <body>
+    <script src="./script.js"></script>
+    <pre>
+
+        <center><h1> JS Assignment : Inheritance and Prototype</h1></center>
+        <h2>1.  Question 1</h2>
+
+        Create 2 objects - parent and child. Attach methods to parent and use those methods in child 
+        object using parents prototype
+
+        >> Answer
+
+        <textarea>
+            
+          let ParentObj = {
+            Email: 'rakesh@yahoo.com',
+            MyEmail: function() {
+              console.log("My Email is " + this.Email);
+            }
+          };
+          
+          let ChildObj = {
+            Email: 'rakesh@hotmail.com',
+          };
+          
+          ChildObj.__proto__ = ParentObj;
+          
+          ChildObj.MyEmail();
+
+        </textarea>
+    
+    <h2> 2. Question 2</h2>
+
+     Write code to explain prototype chaining
+
+    >> Answer
+
+       <textarea>
+  
+        let ParentObj = {
+          Email: 'rakesh@yahoo.com',
+          MyEmail: function() {
+            console.log("My Email is " + this.Email);
+          }
+        };
+        
+        let ChildObj = {
+          Email: 'rakesh@hotmail.com',
+        };
+        
+        ChildObj.__proto__ = ParentObj;
+        
+        ChildObj.MyEmail();
+      
+      let GrandChildObj = Object.create(ChildObj);
+      GrandChildObj.Email = 'rakesh@gmail.com'; 
+      
+      GrandChildObj.MyEmail(); 
+      
+      // Here MyEmail Method is inherited from the ParentObj through ChildObj and ChildObj 
+      // Inherited this Method From ParentObj this is called as prototype chahining.
+      
+
+    </textarea>
+
+
+
+        <h2>3. Question 3</h2>
+
+        Add a method to calculate sum of all elements in Array in array's protype, use that method to
+        calculate sum for multiple arrays.
+
+            >> Answer
+
+            <textarea>
+            
+              let arr1 = [1,2,4,7,8,9,9];
+              let arr2 = [5,5,4,2,2,3,1,1];
+              let arr3 = [6,6,4,3,4,0,4,4,9,5];
+              let arr4 = [2,6,6,73,3,35,2,4];
+              let arr5 = [24,4,41,111,434,7675];
+              
+              Array.prototype.SumAll = function() {
+                  return this.reduce((acc, cur) => acc + cur, 0);
+                };
+              
+              
+              const sum1 = arr1.SumAll();
+              console.log(sum1); 
+              const sum2 = arr2.SumAll();
+              console.log(sum2);
+              const sum3 = arr3.SumAll();
+              console.log(sum3); 
+              const sum4 = arr4.SumAll();
+              console.log(sum4); 
+              const sum5 = arr5.SumAll();
+              console.log(sum5); 
+
+        </textarea>
+
+    <h2>4. Question 4</h2>
+
+    Write a JavaScript function to retrieve all the names of object's own and inherited properties.
+
+    >> Answer
+
+    <textarea>
+        
+      let StudentsDetails ={
+        Name : "Sagar",
+        Age : 10,
+        Class : 5,
+        Batch : "B",
+        Hobby : "Reading Comics"
+    }
+    
+    function GetProperty(StudentsDetails) {
+        let OwnProp = Object.getOwnPropertyNames(StudentsDetails);
+        let prototype = Object.getPrototypeOf(StudentsDetails);
+        let InheritedProp = prototype
+          ? Object.getOwnPropertyNames(prototype)
+          : [];
+        return OwnProp.concat(InheritedProp);
+      }
+    
+      console.log(GetProperty(StudentsDetails));
+      
+    </textarea>
+
+    </pre>
+  </body>
+</html>

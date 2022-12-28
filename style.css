@@ -1,0 +1,49 @@
+body {
+  background-color: lightblue;
+}
+
+@keyframes ny {
+  0% {
+    border-color: rgb(163, 194, 25);
+  }
+  50% {
+    border-color: rgb(192, 80, 77);
+  }
+  100% {
+    border-color: rgb(151, 179, 52);
+  }
+}
+
+h1 {
+  width: 700px;
+  border: 2px solid black;
+  animation: ny 1.2s infinite;
+}
+
+.code {
+  width: 500px;
+  height: 280px;
+  color: white;
+  background-color: grey;
+  margin-left: 70px;
+}
+
+
+h2 {
+  display: inline;
+  font-size: 17px;
+}
+
+textarea {
+  width: 800px;
+  height: 600px;
+  background: linear-gradient(to right, #333, #777);
+  color: white;
+  margin-left: 55px;
+  font-size: 14px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+pre{
+  font-size: 15px;
+}
